@@ -6,7 +6,6 @@ pragma solidity ^0.8.9;
 
 contract BuyMeTea {
     string public WelcomMsg = "Welcome to buy me tea contract";
-    string testVal;
 
 
     function retrieve() public view  returns (string memory) {
