@@ -30,5 +30,14 @@ module.exports = {
     // currency: "USD",
     //coinmarketcap:APIKEY
 
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
+      31337: 1,
+    },
+    user:{
+      default: 1,
+    }
   }
 };
