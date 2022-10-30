@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config()
 require("hardhat-gas-reporter")
+require("hardhat-deploy")
 
 /** @type import('hardhat/config').HardhatUserConfig */
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
