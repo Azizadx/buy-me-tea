@@ -3,13 +3,12 @@
 
 
 //SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.7;
 import "./PriceConverter.sol";
 
 //constant and immutable 
 
-error NotOwner();
+error BuyMeTea_NotOwner();
 contract BuyMeTea {
     using PriceConverter for uint256;
 
@@ -20,6 +19,15 @@ contract BuyMeTea {
     mapping(address => uint256) public addressToAmountFunded;
     AggregatorV3Interface public priceFeed;
 
+    //function order
+    ///constructor
+    ///receive
+    ///fallback
+    ///external
+    ///public
+    ///internal
+    ///private
+    ///view/pure 
     constructor(address priceFeedAddress) {
         i_owner = msg.sender;
         priceFeed = AggregatorV3Interface(priceFeedAddress);
@@ -53,29 +61,9 @@ contract BuyMeTea {
     }
     modifier onlyOwner {
         if( msg.sender != i_owner) {
-            revert NotOwner();
+            revert BuyMeTea_NotOwner();
         }
         // require(msg.sender == i_owner,"Sender is not owner!");
         _;
     }
-
-    // Ether is sent to contract
-    //      is msg.data empty?
-    //          /   \ 
-    //         yes  no
-    //         /     \
-    //    receive()?  fallback() 
-    //     /   \ 
-    //   yes   no
-    //  /        \
-    //receive()  fallback()
-
-    receive() external payable {
-        fund();
-    }
-
-    fallback() external payable {
-        fund();
-    }
-
 }
