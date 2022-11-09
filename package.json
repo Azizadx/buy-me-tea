@@ -1,5 +1,6 @@
 {
-  "name": "hardhat-fund-me",
+  "name": "hardhat-buy-me-tea",
+  "author": "azizadx",
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
@@ -25,5 +26,13 @@
     "solhint": "^3.3.7",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0"
+  },
+
+  "scripts": {
+    "test": "yarn hardhat test",
+    "lint": "yarn solhint contracts/*.sol",
+    "lint:fix": "yarn solhint contracts/*.sol --fix",
+    "format": "yarn prettier --write",
+    "coverage": "yanr hardhat coverage"
   }
 }
